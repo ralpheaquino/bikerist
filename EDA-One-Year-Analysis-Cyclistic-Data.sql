@@ -58,6 +58,14 @@ SELECT
 	WHERE member_casual = 'casual'
 	) AS casual_avg_ride_length
 FROM 2022_trips t2;
+
+-- AVERAGE RIDE LENGTH OF MEMBERS AND RIDERS PER DAY OF WEEK
+SELECT 
+	sec_to_time(AVG(time_to_sec(RL2))) AS avg_ride_length,
+	day_of_week,
+	member_casual
+FROM `2022_trips` t 
+GROUP BY member_casual,day_of_week ;
 	
 
 -- MAX ride length for each category
